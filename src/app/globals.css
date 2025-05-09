@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-almarai: 'Almarai', sans-serif;
+}
+
+.font-latin {
+  font-family: var(--font-montserrat);
+}
+
+.font-arabic {
+  font-family: var(--font-almarai);
+}
+
+@layer components {
+  .container {
+    @apply w-full max-w-screen-xl mx-auto px-8;
+  }
+}
