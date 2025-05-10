@@ -10,7 +10,7 @@ export default function HeroSection() {
 
     return (
         <section
-            className="flex flex-col-reverse md:flex-row items-center justify-center h-screen md:max-h-[600px] pt-12"
+            className="flex flex-col-reverse md:flex-row items-center justify-center pt-12 pb-12 sm:pt-16 sm:pb-16"
         >
             <motion.div
                 initial={{ x: -110, opacity: 0 }}
