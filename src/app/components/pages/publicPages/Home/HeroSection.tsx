@@ -15,7 +15,7 @@ export default function HeroSection() {
             <motion.div
                 initial={{ x: -110, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1, ease: 'easeOut' }}
+                transition={{ duration: 1.1, ease: 'easeOut' }}
                 className="w-full md:w-1/2 space-y-6"
             >
                 <h1 className="text-3xl md:text-4xl font-semibold leading-snug">
