@@ -10,7 +10,7 @@ export default function HeroSection() {
 
     return (
         <section
-            className="flex flex-col-reverse md:flex-row items-center justify-center h-screen sm:max-h-[600px] sm:pt-12"
+            className="flex flex-col-reverse md:flex-row items-center justify-center h-screen sm:max-h-[600px] pt-12"
         >
             <motion.div
                 initial={{ x: -110, opacity: 0 }}
@@ -33,7 +33,7 @@ export default function HeroSection() {
             </motion.div>
 
             <div className="w-full md:w-1/2 flex justify-center">
-                <div className="md:w-[400px] md:h-[400px] lg:w-[520px] lg:h-[520px] sm:h-[350px] sm:w-[350px]">
+                <div className="md:w-[400px] md:h-[400px] lg:w-[520px] lg:h-[520px] h-[350px] w-[350px]">
                     <DotLottieReact
                         src="https://lottie.host/f830a3b3-80d4-495e-8c10-079fff5598dc/tttVpb7USX.lottie"
                         loop
