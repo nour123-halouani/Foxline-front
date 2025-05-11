@@ -7,7 +7,7 @@ export default function Home() {
     const t = useTranslations();
 
     return (
-        <div className='flex flex-col gap-12 container'>
+        <div className='flex flex-col gap-20 container'>
             <HeroSection />
             <ClosingTimes />
         </div>

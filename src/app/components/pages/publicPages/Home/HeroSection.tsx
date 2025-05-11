@@ -9,7 +9,7 @@ export default function HeroSection() {
     const t = useTranslations();
 
     return (
-        <section className="flex flex-col-reverse md:flex-row items-center justify-center pt-16 pb-16">
+        <section className="flex flex-col-reverse md:flex-row items-center justify-center pt-16">
             <motion.div
                 initial={{ x: -110, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -35,6 +35,8 @@ export default function HeroSection() {
                         src="https://lottie.host/f830a3b3-80d4-495e-8c10-079fff5598dc/tttVpb7USX.lottie"
                         loop
                         autoplay
+                        speed={1.5}
+                        
                     />
                 </div>
             </div>

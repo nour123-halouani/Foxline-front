@@ -18,6 +18,9 @@ const config: Config = {
       "4xl": "2560px",
     },
     extend: {
+      boxShadow: {
+        custom: '0px 0px 25px 0px #97979733',
+      },
       colors: {
         typography: {
           lighter: "#B0BAC9",
