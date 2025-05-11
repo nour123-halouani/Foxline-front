@@ -18,10 +18,10 @@
 
 @layer components {
   .container {
-    @apply w-full max-w-screen-xl mx-auto px-4 lg:px-12;
+    @apply w-full max-w-screen-xl mx-auto px-4 lg:px-20;
   }
 
   body {
-    @apply bg-bg;
+    @apply bg-bg text-typography;
   }
 }

@@ -50,6 +50,10 @@ const config: Config = {
         blue: {
           DEFAULT: "#376CC0"
         },
+        muted: "#ECEEF2",
+        primary: {
+          DEFAULT: "#B18641",
+        }
       },
       fontFamily: {
         montserrat: ["var(--font-montserrat)"],

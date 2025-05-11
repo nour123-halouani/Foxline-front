@@ -20,7 +20,7 @@ export default function HeroSection() {
                     <span className="text-black">{t("heroSectionTitle1")} </span>
                     <span className="text-gold font-bold"> {t("heroSectionTitle2")}</span>
                 </h1>
-                <p className="text-typography text-sm">
+                <p className="text-typography-dark text-sm">
                     {t("heroSectionDescription")}
                 </p>
                 <Link href="/contact" className="inline-block transition">
