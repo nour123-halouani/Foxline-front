@@ -31,5 +31,11 @@
     "externalMediationDescription": "Reliable mediation between clients, carriers, and customs to keep your shipments on track and your partnerships strong.",
     "shippingPrices": "Shipping Prices",
     "shippingPricesDescription": "Enter your shipping details to instantly view pricing tailored to your route and package.",
-    "checkPrice": "Check Price"
+    "checkPrice": "Check Price",
+    "length": "Length (cm)",
+    "height": "Height (cm)",
+    "weight":"Weight (kilograms)",
+    "warehouse":"Warehouse",
+    "line":"Line",
+    "width":"Width"
 }

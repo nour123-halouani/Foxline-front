@@ -1,6 +1,9 @@
 'use client';
+import { Dropdown } from '@/app/components/icons/Dropdown';
 import CustomCard from '@/app/components/ui/Cards';
+import MySelect from '@/app/components/ui/MySelect';
 import { useTranslations } from '@/app/hooks/useTranslations';
+import { useState } from 'react';
 import { Button, Input, Select } from 'rizzui';
 
 export default function ShippingPrices() {
@@ -10,6 +13,8 @@ export default function ShippingPrices() {
         { label: 'BELGIEN', value: 'BELGIEN' },
         { label: 'PARIS', value: 'PARIS' },
     ];
+    const [value, setValue] = useState(null);
+
     return (
         <div className='container lg:mb-24 md:mb-5'>
             <CustomCard>
@@ -19,14 +24,37 @@ export default function ShippingPrices() {
                     </h3>
                     <p className="text-sm text-typography-dark">{t("shippingPricesDescription")}</p>
                 </div>
-                <Input
-                    placeholder={t("enterYourTrackingNumber")}
-                />
-                <Select
-                    placeholder={t("enterYourTrackingNumber")}
-                    options={options}
-                />
-
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                    <Input
+                        placeholder={t("length")}
+                        type='number'
+                    />
+                    <Input
+                        placeholder={t("weight")}
+                        type='number'
+                    />
+                    <MySelect
+                        options={options}
+                        // value={value}
+                        placeholder={t("line")}
+                    // onChange={(val) => setValue(val)}
+                    />
+                    <Input
+                        placeholder={t("height")}
+                        type='number'
+                        min={0}
+                    />
+                    <Input
+                        placeholder={t("width")}
+                        type='number'
+                    />
+                    <MySelect
+                        options={options}
+                        // value={value}
+                        placeholder={t("warehouse")}
+                    // onChange={(val) => setValue(val)}
+                    />
+                </div>
                 <Button size="md" className="bg-gold text-white py-4 px-6">
                     {t('checkPrice')}
                 </Button>
