@@ -34,9 +34,16 @@
     "checkPrice": "Check Price",
     "length": "Length (cm)",
     "height": "Height (cm)",
-    "weight":"Weight (kilograms)",
-    "warehouse":"Warehouse",
-    "line":"Line",
-    "width":"Width",
-    "latestNews":"Latest News"
+    "weight": "Weight (kilograms)",
+    "warehouse": "Warehouse",
+    "line": "Line",
+    "width": "Width",
+    "latestNews": "Latest News",
+    "operationMode": "Operation Mode",
+    "connect": "Connect",
+    "connectDescription": "We bridge the gap between you and your partners — locally and internationally — with real-time communication and reliable coordination.",
+    "store": "Store",
+    "storeDescription": "From short-term to long-term storage, we manage your inventory with precision, security, and full visibility at every step.",
+    "shipping": "Shipping",
+    "shippingDescription": "Whether it’s a single pallet or full containers, we ship with care, speed, and real-time tracking across every route."
 }

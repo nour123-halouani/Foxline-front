@@ -4,6 +4,7 @@ import TrackingSection from "./TrackingSection";
 import Services from "./Services";
 import ShippingPrices from "./ShippingPrices";
 import LastNews from "./LastNews";
+import OperationMode from "./OperationMode";
 
 export default function Home() {
 
@@ -15,6 +16,7 @@ export default function Home() {
             <Services />
             <ShippingPrices />
             <LastNews />
+            <OperationMode />
         </div>
     );
 }

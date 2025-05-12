@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   --font-montserrat: 'Montserrat', sans-serif;
   --font-almarai: 'Almarai', sans-serif;
