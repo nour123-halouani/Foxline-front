@@ -37,5 +37,6 @@
     "weight":"Weight (kilograms)",
     "warehouse":"Warehouse",
     "line":"Line",
-    "width":"Width"
+    "width":"Width",
+    "latestNews":"Latest News"
 }

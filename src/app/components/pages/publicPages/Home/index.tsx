@@ -3,6 +3,7 @@ import ClosingTimes from "./ClosingTimes";
 import TrackingSection from "./TrackingSection";
 import Services from "./Services";
 import ShippingPrices from "./ShippingPrices";
+import LastNews from "./LastNews";
 
 export default function Home() {
 
@@ -13,6 +14,7 @@ export default function Home() {
             <ClosingTimes />
             <Services />
             <ShippingPrices />
+            <LastNews />
         </div>
     );
 }
