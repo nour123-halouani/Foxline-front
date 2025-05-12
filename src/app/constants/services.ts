@@ -1,7 +1,6 @@
-'use client';
 import { useTranslations } from '@/app/hooks/useTranslations';
 
-export function servicesList() {
+export function useServicesList() {
     const t = useTranslations();
 
     return [

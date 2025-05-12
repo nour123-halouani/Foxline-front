@@ -28,5 +28,8 @@
     "airfreight": "Air freight",
     "airfreightDescription": "Priority air freight for time-sensitive shipments with end-to-end visibility, customs assistance, and global reach.",
     "externalMediation": "External Mediation",
-    "externalMediationDescription": "Reliable mediation between clients, carriers, and customs to keep your shipments on track and your partnerships strong."
+    "externalMediationDescription": "Reliable mediation between clients, carriers, and customs to keep your shipments on track and your partnerships strong.",
+    "shippingPrices": "Shipping Prices",
+    "shippingPricesDescription": "Enter your shipping details to instantly view pricing tailored to your route and package.",
+    "checkPrice": "Check Price"
 }

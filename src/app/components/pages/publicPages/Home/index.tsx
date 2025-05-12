@@ -2,6 +2,7 @@ import HeroSection from "./HeroSection";
 import ClosingTimes from "./ClosingTimes";
 import TrackingSection from "./TrackingSection";
 import Services from "./Services";
+import ShippingPrices from "./ShippingPrices";
 
 export default function Home() {
 
@@ -11,6 +12,7 @@ export default function Home() {
             <TrackingSection />
             <ClosingTimes />
             <Services />
+            <ShippingPrices />
         </div>
     );
 }

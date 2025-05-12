@@ -1,15 +1,15 @@
 'use client';
 import Title from '@/app/components/ui/Title';
-import { servicesList } from '@/app/constants/services';
+import { useServicesList } from '@/app/constants/services';
 import { useTranslations } from '@/app/hooks/useTranslations';
 import { IconReader } from '@/app/utils/iconReader';
 
 export default function Services() {
     const t = useTranslations();
-    const servicesData = servicesList();
+    const servicesData = useServicesList();
 
     return (
-        <div className="py-12 bg-bg-dark">
+        <div className="py-12 bg-bg-dark lg:mb-24 md:mb-5">
             <div className="container flex flex-col gap-12">
                 <Title title={t('servicesWeOffer')} className="justify-center" />
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 py-5">
