@@ -21,5 +21,12 @@
     "enterYourTrackingNumber": "Enter Your Tracking Number",
     "trackNow": "Track Now",
     "trackYourOrder": "Track Your Order",
-    "trackYourOrderDescription": "Track your parcel in real time by entering your tracking number."
+    "trackYourOrderDescription": "Track your parcel in real time by entering your tracking number.",
+    "servicesWeOffer": "Services We Offer",
+    "seaShipping": "Sea Shipping",
+    "seaShippingDescription": "Efficient ocean freight solutions for bulk cargo and containers — tailored for cross-border delivery, full tracking, and competitive rates.",
+    "airfreight": "Air freight",
+    "airfreightDescription": "Priority air freight for time-sensitive shipments with end-to-end visibility, customs assistance, and global reach.",
+    "externalMediation": "External Mediation",
+    "externalMediationDescription": "Reliable mediation between clients, carriers, and customs to keep your shipments on track and your partnerships strong."
 }

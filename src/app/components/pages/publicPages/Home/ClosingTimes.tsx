@@ -15,7 +15,7 @@ export default function ClosingTimes() {
     };
 
     return (
-        <div className="flex flex-col gap-12">
+        <div className="container flex flex-col gap-12 lg:mb-24 md:mb-5">
             <Title title={t("shippmentsClosingTimesTitle")} className="justify-center" />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {times.shipments.map((shipment, index) => {

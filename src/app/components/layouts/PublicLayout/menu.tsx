@@ -50,7 +50,7 @@ export default function MainMenu() {
     return (
         <header className={cn("bg-typography text-white w-full z-50 fixed top-0 transition-all duration-300 ease-in-out transform text-base",
             showHeader ? "translate-y-0" : "-translate-y-full")}>
-            <div className="container flex items-center justify-between py-[11px]">
+            <div className="w-full max-w-screen-xl mx-auto px-4 lg:px-8 flex items-center justify-between py-[11px]">
                 <Link href="/">
                     <Image src={logo} alt="Logo" width={130} height={220} />
                 </Link>
