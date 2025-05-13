@@ -1,9 +1,9 @@
 'use client';
-import operation1 from '../../../../../../public/operation-1.png';
-import operation2 from '../../../../../../public/operation-2.png';
-import operation3 from '../../../../../../public/operation-3.png';
-import fleche1 from '../../../../../../public/fleche-1.png';
-import fleche2 from '../../../../../../public/fleche-2.png';
+import operation1 from '../../../../../../public/home-media/operation-1.png';
+import operation2 from '../../../../../../public/home-media/operation-2.png';
+import operation3 from '../../../../../../public/home-media/operation-3.png';
+import fleche1 from '../../../../../../public/home-media/fleche-1.png';
+import fleche2 from '../../../../../../public/home-media/fleche-2.png';
 import { useTranslations } from '@/app/hooks/useTranslations';
 import Title from '@/app/components/ui/Title';
 import Image from 'next/image';

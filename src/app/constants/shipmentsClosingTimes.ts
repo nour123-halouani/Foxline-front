@@ -18,7 +18,7 @@ export const times = {
     {
       location: "BELGIEN",
       code: "BE84",
-      date: "2025-05-14",
+      date: "2025-05-19",
     }
   ]
 };

@@ -1,5 +1,4 @@
 'use client';
-
 import Title from '@/app/components/ui/Title';
 import { times } from '@/app/constants/shipmentsClosingTimes';
 import { useTranslations } from '@/app/hooks/useTranslations';
