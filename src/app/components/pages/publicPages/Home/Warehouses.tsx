@@ -59,6 +59,7 @@ export default function Warehouses() {
                                 ? warehouses
                                 : warehousesDefault
                     }
+                    onClick={() => setIsVisible(true)}
                     alt="Warehouses Map"
                     className="object-cover transition-opacity duration-500"
                     priority
@@ -67,7 +68,8 @@ export default function Warehouses() {
             <div className='flex flex-row gap-3 justify-center items-center pb-8 px-4'>
                 <Link href="/">
                     <Button
-                        size={isMobile ? "sm" : "md"}
+                        size='md'
+                        // size={isMobile ? "sm" : "md"}
                         variant="outline"
                         className="border-gold text-gold w-full"
                     >
@@ -76,7 +78,8 @@ export default function Warehouses() {
                 </Link>
                 <Link href="/sign-in">
                     <Button
-                        size={isMobile ? "sm" : "md"}
+                        size='md'
+                        // size={isMobile ? "sm" : "md"}
                         className="bg-gold text-typography w-full"
                     >
                         {t("signIn")}
