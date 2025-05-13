@@ -1,12 +1,14 @@
 'use client';
 import Image from 'next/image';
 import { useEffect, useState, useRef } from 'react';
+import Link from 'next/link';
+import { Button } from 'rizzui';
 import Title from '@/app/components/ui/Title';
 import { useTranslations } from '@/app/hooks/useTranslations';
 import warehousesDefault from "../../../../../../public/warehouses-default.png";
 import warehouses from "../../../../../../public/warehouses-maps.png";
-import Link from 'next/link';
-import { Button } from 'rizzui';
+import warehousesDefaultMobile from "../../../../../../public/warehouses-default-mobile.png";
+import warehousesMobile from "../../../../../../public/warehouses-maps-mobile.png";
 
 export default function Warehouses() {
     const t = useTranslations();
@@ -46,9 +48,17 @@ export default function Warehouses() {
     return (
         <div ref={sectionRef} className="pt-12 bg-bg-dark">
             <Title title={t('warehouses')} className="justify-center pb-12" />
-            <div className="container">
+            <div className="sm:container">
                 <Image
-                    src={isVisible ? warehouses : warehousesDefault}
+                    src={
+                        isMobile
+                            ? isVisible
+                                ? warehousesMobile
+                                : warehousesDefaultMobile
+                            : isVisible
+                                ? warehouses
+                                : warehousesDefault
+                    }
                     alt="Warehouses Map"
                     className="object-cover transition-opacity duration-500"
                     priority
