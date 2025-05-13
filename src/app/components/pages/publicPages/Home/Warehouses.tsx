@@ -69,7 +69,6 @@ export default function Warehouses() {
                 <Link href="/">
                     <Button
                         size='md'
-                        // size={isMobile ? "sm" : "md"}
                         variant="outline"
                         className="border-gold text-gold w-full"
                     >
@@ -79,7 +78,6 @@ export default function Warehouses() {
                 <Link href="/sign-in">
                     <Button
                         size='md'
-                        // size={isMobile ? "sm" : "md"}
                         className="bg-gold text-typography w-full"
                     >
                         {t("signIn")}
