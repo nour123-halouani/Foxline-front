@@ -1,48 +1,77 @@
-// 'use client';
-// import Title from '@/app/components/ui/Title';
-// import { useTranslations } from '@/app/hooks/useTranslations';
-// import warehouses from "../../../../../../public/warehouses-maps.png"
-// import Image from 'next/image';
-
-
-// export default function Wrehouses() {
-//     const t = useTranslations();
-
-//     return (
-//         <div className="pt-12 bg-bg-dark">
-//             <Title title={t('warehouses')} className="justify-center text-center text-lg sm:text-xl" />
-//             <Image src={warehouses} alt="warehouses" className='container py-12' />
-//         </div>
-//     );
-// }
-
 'use client';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Title from '@/app/components/ui/Title';
 import { useTranslations } from '@/app/hooks/useTranslations';
-import warehousesDefault from "../../../../../../public/warehouses-default.png"
-import warehouses from "../../../../../../public/warehouses-maps.png"
+import warehousesDefault from "../../../../../../public/warehouses-default.png";
+import warehouses from "../../../../../../public/warehouses-maps.png";
+import Link from 'next/link';
+import { Button } from 'rizzui';
 
 export default function Warehouses() {
     const t = useTranslations();
-    const [hover, setHover] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
+    const sectionRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        const section = sectionRef.current;
+        if (!section) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsVisible(entry.intersectionRatio >= 0.6);
+            },
+            {
+                root: null,
+                threshold: Array.from({ length: 101 }, (_, i) => i / 100),
+            }
+        );
+
+        observer.observe(section);
+        return () => observer.unobserve(section);
+    }, []);
+
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 640);
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     return (
-        <div className="pt-12 bg-bg-dark">
-            <Title title={t('warehouses')} className="justify-center text-center text-lg sm:text-xl" />
-            <div
-                className="container py-12 relative w-full max-w-7xl mx-auto"
-                onMouseEnter={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
-            >
+        <div ref={sectionRef} className="pt-12 bg-bg-dark">
+            <Title title={t('warehouses')} className="justify-center pb-12" />
+            <div className="container">
                 <Image
-                    src={hover ? warehouses : warehousesDefault}
+                    src={isVisible ? warehouses : warehousesDefault}
                     alt="Warehouses Map"
-                    width={1200}
-                    height={600}
-                    className="w-full h-auto transition-opacity duration-300"
+                    className="object-cover transition-opacity duration-500"
+                    priority
                 />
+            </div>
+            <div className='flex flex-row gap-3 justify-center items-center pb-8 px-4'>
+                <Link href="/">
+                    <Button
+                        size={isMobile ? "sm" : "md"}
+                        variant="outline"
+                        className="border-gold text-gold w-full"
+                    >
+                        {t("seeMore")}
+                    </Button>
+                </Link>
+                <Link href="/sign-in">
+                    <Button
+                        size={isMobile ? "sm" : "md"}
+                        className="bg-gold text-typography w-full"
+                    >
+                        {t("signIn")}
+                    </Button>
+                </Link>
             </div>
         </div>
     );

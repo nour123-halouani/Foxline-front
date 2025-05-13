@@ -45,5 +45,6 @@
     "store": "Store",
     "storeDescription": "From short-term to long-term storage, we manage your inventory with precision, security, and full visibility at every step.",
     "shipping": "Shipping",
-    "shippingDescription": "Whether it’s a single pallet or full containers, we ship with care, speed, and real-time tracking across every route."
+    "shippingDescription": "Whether it’s a single pallet or full containers, we ship with care, speed, and real-time tracking across every route.",
+    "seeMore": "See More"
 }

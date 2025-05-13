@@ -116,7 +116,7 @@ export default function MainMenu() {
                         </Button>
                     </Link>
                     <Link onClick={() => setMobileMenuOpen(false)} href="/sign-in">
-                        <Button size="md" className="bg-gold text-black w-full">
+                        <Button size="md" className="bg-gold text-typography w-full">
                             {t("signIn")}
                         </Button>
                     </Link>

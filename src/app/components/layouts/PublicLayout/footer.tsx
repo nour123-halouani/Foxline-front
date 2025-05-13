@@ -59,7 +59,10 @@ export default function Footer() {
                         <Link href="#" className="bg-white text-gold p-2 rounded-full">
                             <Instagram />
                         </Link>
-                        <Link href="#" className="bg-white text-gold p-2 rounded-full">
+                        <Link href="https://api.whatsapp.com/send/?phone=218916051666&text&type=phone_number&app_absent=0"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-white text-gold p-2 rounded-full">
                             <Whatsapp />
                         </Link>
                     </div>
