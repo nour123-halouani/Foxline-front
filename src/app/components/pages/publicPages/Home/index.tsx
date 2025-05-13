@@ -5,6 +5,7 @@ import Services from "./Services";
 import ShippingPrices from "./ShippingPrices";
 import LastNews from "./LastNews";
 import OperationMode from "./OperationMode";
+import Wrehouses from "./Warehouses";
 
 export default function Home() {
 
@@ -17,6 +18,7 @@ export default function Home() {
             <ShippingPrices />
             <LastNews />
             <OperationMode />
+            <Wrehouses />
         </div>
     );
 }

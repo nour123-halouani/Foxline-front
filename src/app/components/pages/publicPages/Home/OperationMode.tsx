@@ -8,7 +8,6 @@ import { useTranslations } from '@/app/hooks/useTranslations';
 import Title from '@/app/components/ui/Title';
 import Image from 'next/image';
 import { useLanguage } from '@/app/context/LanguageContext';
-import cn from '@/app/utils/class-names';
 
 export default function OperationMode() {
     const t = useTranslations();
@@ -19,8 +18,7 @@ export default function OperationMode() {
             <Title title={t('operationMode')} className="justify-center text-center text-lg sm:text-xl" />
             <div className='flex flex-col sm:gap-1 gap-8'>
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4 sm:gap-8">
-                    <div className={cn("md:w-1/2 flex flex-col gap-3 text-center",
-                        lang === "ar" ? "md:text-right" : "md:text-left")}>
+                    <div className="md:w-1/2 flex flex-col gap-3">
                         <h3 className="text-base sm:text-xl font-extrabold text-gold flex items-center gap-2 justify-center text-center md:justify-start md:text-left">
                             <span className="w-8 h-8 flex items-center justify-center bg-typography text-bg-lighter rounded-full">
                                 1
@@ -47,8 +45,7 @@ export default function OperationMode() {
                     </div>
                 }
                 <div className="flex flex-col md:flex-row-reverse justify-center items-center gap-4 sm:gap-8">
-                    <div className={cn("md:w-1/2 flex flex-col gap-3 text-center",
-                        lang === "ar" ? "md:text-right" : "md:text-left")}>
+                    <div className="md:w-1/2 flex flex-col gap-3">
                         <h3 className="text-base sm:text-xl font-extrabold text-gold flex items-center gap-2 justify-center text-center md:justify-start md:text-left">
                             <span className="w-8 h-8 flex items-center justify-center bg-typography text-bg-lighter rounded-full">
                                 2
@@ -75,8 +72,7 @@ export default function OperationMode() {
                     </div>
                 }
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4 sm:gap-8">
-                    <div className={cn("md:w-1/2 flex flex-col gap-3 text-center",
-                        lang === "ar" ? "md:text-right" : "md:text-left")}>
+                    <div className="md:w-1/2 flex flex-col gap-3">
                         <h3 className="text-base sm:text-xl font-extrabold text-gold flex items-center gap-2 justify-center text-center md:justify-start md:text-left">
                             <span className="sm:w-8 sm:h-8 w-7 h-7 flex items-center justify-center bg-typography text-bg-lighter rounded-full">
                                 3
@@ -89,7 +85,7 @@ export default function OperationMode() {
                     </div>
                     <Image
                         src={operation3}
-                        alt="Ship"
+                        alt="shipping"
                         className="w-48 h-48 sm:w-56 sm:h-56"
                     />
                 </div>

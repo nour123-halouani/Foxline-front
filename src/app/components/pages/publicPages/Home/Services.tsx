@@ -14,7 +14,7 @@ export default function Services() {
                 <Title title={t('servicesWeOffer')} className="justify-center" />
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 py-5">
                     {servicesData.map((service, index) => (
-                        <div key={index} className='flex flex-col gap-4'>
+                        <div key={index} className='flex flex-col gap-4 items-center md:items-start'>
                             <div className="flex items-center justify-center bg-bg-lighter w-12 h-12 rounded-full shadow-custom">
                                 <IconReader name={service.icon} className="text-gold-dark w-6 h-6" />
                             </div>

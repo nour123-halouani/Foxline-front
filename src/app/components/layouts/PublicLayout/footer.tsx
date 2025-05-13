@@ -10,7 +10,7 @@ export default function Footer() {
     const t = useTranslations();
 
     return (
-        <footer className="bg-typography mt-20 pt-12 text-typography-lighter flex flex-col gap-12">
+        <footer className="bg-typography pt-12 text-typography-lighter flex flex-col gap-12">
             <div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:gap-16 gap-8">
                 <div className="flex flex-col gap-4">
                     <Link className="hover:text-gold" href="/">
