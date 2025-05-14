@@ -1,4 +1,4 @@
-import cn from "@/app/utils/class-names";
+import cn from "@/app/utils/classNames";
 import { ReactNode } from "react";
 
 interface CardsProps {

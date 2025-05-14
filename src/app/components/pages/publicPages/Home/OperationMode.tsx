@@ -8,7 +8,7 @@ import { useTranslations } from '@/app/hooks/useTranslations';
 import Title from '@/app/components/ui/Title';
 import Image from 'next/image';
 import { useLanguage } from '@/app/context/LanguageContext';
-import cn from '@/app/utils/class-names';
+import cn from '@/app/utils/classNames';
 
 export default function OperationMode() {
     const t = useTranslations();

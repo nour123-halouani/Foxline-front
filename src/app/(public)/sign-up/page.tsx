@@ -1,8 +1,10 @@
-'use client';
-export default function AboutUs() {
+import AuthTemplate from '@/app/components/pages/publicPages/Auth';
+import SignUpForm from '@/app/components/pages/publicPages/Auth/forms/SignUpForm';
+
+export default function SignUp() {
   return (
-    <main>
-      <h1>greeting</h1>
-    </main>
+    <AuthTemplate>
+      <SignUpForm />
+    </AuthTemplate>
   );
 }

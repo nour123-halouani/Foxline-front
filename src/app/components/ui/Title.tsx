@@ -1,6 +1,6 @@
 'use client';
 
-import cn from "@/app/utils/class-names";
+import cn from "@/app/utils/classNames";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 

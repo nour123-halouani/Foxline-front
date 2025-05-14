@@ -2,7 +2,7 @@
 import { ReactNode } from 'react';
 import { Montserrat, Almarai } from 'next/font/google';
 import { useLanguage } from '@/app/context/LanguageContext';
-import cn from '@/app/utils/class-names';
+import cn from '@/app/utils/classNames';
 
 const montserrat = Montserrat({
     variable: '--font-montserrat',

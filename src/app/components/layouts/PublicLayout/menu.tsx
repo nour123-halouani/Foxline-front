@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import { Button } from "rizzui";
 import Image from "next/image";
 import Link from 'next/link'
-import cn from "@/app/utils/class-names";
+import cn from "@/app/utils/classNames";
 import LanguageToggle from "../../multiLanguage/LanguageToggle";
 import { Close } from "../../icons/Close";
 import { Menu } from "../../icons/Menu";

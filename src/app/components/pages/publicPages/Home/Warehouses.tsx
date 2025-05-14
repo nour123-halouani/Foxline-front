@@ -78,7 +78,7 @@ export default function Warehouses() {
                 <Link href="/sign-in">
                     <Button
                         size='md'
-                        className="bg-gold text-typography w-full"
+                        className="bg-gold text-bg w-full"
                     >
                         {t("signIn")}
                     </Button>
