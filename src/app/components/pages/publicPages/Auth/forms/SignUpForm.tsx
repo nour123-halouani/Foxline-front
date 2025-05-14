@@ -121,10 +121,10 @@ export default function SignUpForm() {
             </div>
             <Checkbox
                 {...register('isCompany')}
-                label="I am a company"
+                label={t("isCompany")}
                 size="sm"
                 inputClassName="h-[15px] w-[15px]"
-                iconClassName="h-[15px] w-[15px]"
+                iconClassName="h-[15px] w-[15px] text-white"
             />
             <Button
                 type="submit"

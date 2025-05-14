@@ -66,5 +66,6 @@
     "phone": "رقم الهاتف",
     "alreadyHaveAccount": "هل لديك حساب؟",
     "confirmPassword": "تأكيد كلمة المرور",
-    "passwordsDontMatch":"كلمات المرور غير متطابقة"
+    "passwordsDontMatch":"كلمات المرور غير متطابقة",
+    "isCompany":"أنا شركة"
 }
