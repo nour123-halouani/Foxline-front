@@ -3,6 +3,7 @@ import PhoneInput from 'react-phone-number-input';
 import { useState } from 'react';
 import { Controller } from 'react-hook-form';
 import 'react-phone-number-input/style.css';
+import { useTranslations } from '@/app/hooks/useTranslations';
 
 type PhoneNumberInputProps = {
     control: any;
@@ -15,6 +16,7 @@ const ALLOWED_COUNTRIES: any = ['FR', 'DE', 'BE', 'IT', 'LY'];
 
 export default function PhoneNumberInput({ control, name, error, label }: PhoneNumberInputProps) {
     const [focused, setFocused] = useState(false);
+    const t = useTranslations();
 
     return (
         <div className="lg:w-1/2 w-full">
@@ -50,7 +52,7 @@ export default function PhoneNumberInput({ control, name, error, label }: PhoneN
                     )}
                 />
             </div>
-            {error && <p className="text-[11px] text-red mt-[0.8px]">{error}</p>}
+            {error && <p className="text-[11px] text-red mt-[0.8px]">{error === "Required" ? t('requiredField') : error}</p>}
         </div>
     );
 }

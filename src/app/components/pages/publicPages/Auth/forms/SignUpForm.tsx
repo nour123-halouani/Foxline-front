@@ -40,8 +40,6 @@ export default function SignUpForm() {
         console.log('submitted');
         console.log('Form submitted:', data);
     };
-
-    console.log('errors.phone?.message', errors.phone?.message)
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-3 lg:px-4">
             <div className="flex flex-col gap-1 pb-3">
@@ -73,7 +71,7 @@ export default function SignUpForm() {
                     control={control}
                     name="phone"
                     label={t('phone')}
-                    error={errors.phone?.message === "Required" ? t('requiredField') : errors.phone?.message}
+                    error={errors.phone?.message}
                 />
             </div>
             <div className='flex lg:flex-row flex-col gap-3 lg:gap-2'>
