@@ -66,6 +66,7 @@
     "phone": "Phone number",
     "alreadyHaveAccount": "Already have an account?",
     "confirmPassword": "Confirm password",
-    "passwordsDontMatch":"Passwords don’t match",
-    "isCompany":"I am a comapny"
+    "passwordsDontMatch": "Passwords don’t match",
+    "isCompany": "I am a comapny",
+    "InvalidPhoneNumber": "Invalid phone number"
 }

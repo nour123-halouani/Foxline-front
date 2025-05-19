@@ -73,7 +73,7 @@ export default function SignUpForm() {
                     control={control}
                     name="phone"
                     label={t('phone')}
-                    error={errors.phone?.message}
+                    error={errors.phone?.message === "Required" ? t('requiredField') : errors.phone?.message}
                 />
             </div>
             <div className='flex lg:flex-row flex-col gap-3 lg:gap-2'>

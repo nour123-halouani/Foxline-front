@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { isValidPhoneNumber } from 'libphonenumber-js';
 
 export const signInSchema = (
     t: (key: string, params?: Record<string, any>) => string
@@ -36,8 +37,10 @@ export const signUpSchema = (
                 message: t('passwordMinLength', { length: 8 }),
             })
         ,
-        phone: z.string()
-            .nonempty({ message: t('requiredField') }),
+        phone: z.string().nonempty({ message: t('requiredField') })
+            .refine((val) => isValidPhoneNumber(val), {
+                message: t('InvalidPhoneNumber'),
+            }),
         confirmPassword: z.string()
             .nonempty({ message: t('requiredField') }),
     }).refine((data) => data.password === data.confirmPassword, {
