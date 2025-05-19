@@ -14,7 +14,7 @@ import Link from 'next/link';
 import { GoogleIcon } from '@/app/components/icons/Google';
 import { ColoredFacebook } from '@/app/components/icons/FacebookColored';
 import { User } from '@/app/components/icons/User';
-import { Phone } from '@/app/components/icons/Phone';
+import PhoneNumberInput from '@/app/components/ui/phoneInput';
 
 export default function SignUpForm() {
     const t = useTranslations();
@@ -25,20 +25,23 @@ export default function SignUpForm() {
 
 
     const SignUpSchema = signUpSchema(t);
-    type SignInFormValues = z.infer<typeof SignUpSchema>;
+    type SignUpFormValues = z.infer<typeof SignUpSchema>;
 
     const {
         register,
         handleSubmit,
+        control,
         formState: { errors },
-    } = useForm<SignInFormValues>({
+    } = useForm<SignUpFormValues>({
         resolver: zodResolver(SignUpSchema),
     });
 
-    const onSubmit = (data: SignInFormValues) => {
+    const onSubmit = (data: SignUpFormValues) => {
+        console.log('submitted');
         console.log('Form submitted:', data);
     };
 
+    console.log('errors.phone?.message', errors.phone?.message)
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-3 lg:px-4">
             <div className="flex flex-col gap-1 pb-3">
@@ -66,14 +69,10 @@ export default function SignUpForm() {
                     className="text-typography lg:w-1/2"
                     error={errors.fullName?.message}
                 />
-                <Input
-                    {...register('phone')}
-                    prefix={<Phone className="text-typography-lighter w-[15px] h-[15px]" />}
-                    size="sm"
-                    labelClassName="text-xs"
+                <PhoneNumberInput
+                    control={control}
+                    name="phone"
                     label={t('phone')}
-                    placeholder={t('phone')}
-                    className="text-typography lg:md:w-1/2"
                     error={errors.phone?.message}
                 />
             </div>
@@ -171,8 +170,6 @@ export default function SignUpForm() {
                     {t('connectWithFacebook')}
                 </span>
             </Button>
-
-
             <div className="flex flex-row items-center justify-center gap-1 text-xs">
                 <span className="text-typography ">{t('alreadyHaveAccount')}</span>
                 <Link href="/sign-in" className='text-gold underline'>

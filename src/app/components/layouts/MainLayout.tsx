@@ -24,7 +24,7 @@ export default function MainLayout({ children }: { children: ReactNode }) {
     const fontClass = isArabic ? 'font-arabic' : 'font-latin';
 
     return (
-        <body className={cn(montserrat.variable, almarai.variable, fontClass)} dir={isArabic ? 'rtl' : 'ltr'}>
+        <body suppressHydrationWarning={true} className={cn(montserrat.variable, almarai.variable, fontClass)} dir={isArabic ? 'rtl' : 'ltr'}>
             {children}
         </body>
     );

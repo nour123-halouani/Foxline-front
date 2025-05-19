@@ -23,4 +23,15 @@
   body {
     @apply bg-bg text-typography;
   }
+
+  .PhoneInputInput {
+    @apply w-full text-xs bg-transparent outline-none border-none;
+    box-shadow: none !important;
+  }
+
+  /* .PhoneInputCountrySelect {
+    border: none !important;
+    background: red !important;
+    outline: none !important;
+  } */
 }
