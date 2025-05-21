@@ -65,7 +65,6 @@ export default function CustomCountrySelect({ value, onChange, labels, allowedCo
             menuPlacement="auto"
             menuPosition="absolute"
             onMenuOpen={() => setMenuIsOpen(true)}
-            onMenuClose={() => setMenuIsOpen(false)}
             menuShouldScrollIntoView={false}
             components={{
                 DropdownIndicator: CustomDropdownIndicator as any,
