@@ -14,7 +14,7 @@ import Link from 'next/link';
 import { GoogleIcon } from '@/app/components/icons/Google';
 import { ColoredFacebook } from '@/app/components/icons/FacebookColored';
 import { User } from '@/app/components/icons/User';
-import PhoneNumberInput from '@/app/components/ui/phoneInput';
+import PhoneNumberInput from '@/app/components/ui/PhoneInput';
 
 export default function SignUpForm() {
     const t = useTranslations();

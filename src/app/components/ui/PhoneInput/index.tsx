@@ -1,9 +1,13 @@
 'use client';
-import PhoneInput from 'react-phone-number-input';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Controller } from 'react-hook-form';
 import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-number-input';
+import ar from 'react-phone-number-input/locale/ar';
+import en from 'react-phone-number-input/locale/en';
+import { useLanguage } from '@/app/context/LanguageContext';
 import { useTranslations } from '@/app/hooks/useTranslations';
+import CustomCountrySelect from './CustomCountrySelect';
 
 type PhoneNumberInputProps = {
     control: any;
@@ -12,11 +16,12 @@ type PhoneNumberInputProps = {
     label: string;
 };
 
-const ALLOWED_COUNTRIES: any = ['FR', 'DE', 'BE', 'IT', 'LY'];
+const ALLOWED_COUNTRIES: any = ['LY', 'DE', 'FR', 'BE', 'IT'];
 
 export default function PhoneNumberInput({ control, name, error, label }: PhoneNumberInputProps) {
     const [focused, setFocused] = useState(false);
     const t = useTranslations();
+    const { lang } = useLanguage();
 
     return (
         <div className="lg:w-1/2 w-full">
@@ -37,11 +42,17 @@ export default function PhoneNumberInput({ control, name, error, label }: PhoneN
                             international
                             defaultCountry="LY"
                             countries={ALLOWED_COUNTRIES}
-                            className="PhoneInputInput"
                             inputComponent="input"
-                            onFocus={() =>
-                                setFocused(true)
-                            }
+                            className="PhoneInputInput"
+                            countrySelectComponent={(props) => (
+                                <CustomCountrySelect
+                                    {...props}
+                                    labels={lang === 'ar' ? ar : en}
+                                    allowedCountries={ALLOWED_COUNTRIES}
+                                    lang={lang}
+                                />
+                            )}
+                            onFocus={() => setFocused(true)}
                             onBlur={(e) => {
                                 field.onBlur();
                                 setFocused(false);
@@ -51,6 +62,7 @@ export default function PhoneNumberInput({ control, name, error, label }: PhoneN
 
                     )}
                 />
+
             </div>
             {error && <p className="text-[11px] text-red mt-[0.8px]">{error === "Required" ? t('requiredField') : error}</p>}
         </div>
