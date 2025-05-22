@@ -54,66 +54,67 @@ export default function CustomCountrySelect({ value, onChange, labels, allowedCo
     }, [value, defaultOption, onChange]);
 
     return (
-        <Select
-            instanceId="phone-country-select"
-            options={options}
-            onChange={(option) => onChange(option?.value || defaultOption?.value)}
-            value={selectedOption || defaultOption}
-            classNamePrefix="react-select"
-            isSearchable={false}
-            isClearable={false}
-            menuPlacement="auto"
-            menuPosition="absolute"
-            onMenuOpen={() => setMenuIsOpen(true)}
-            menuShouldScrollIntoView={false}
-            components={{
-                DropdownIndicator: CustomDropdownIndicator as any,
-                SingleValue: ({ data }) => <div>{data.flagOnly}</div>,
-                IndicatorSeparator: () => null,
-            }}
-            styles={{
-                option: (styles, { isFocused, isSelected }) => ({
-                    ...styles,
-                    backgroundColor: isSelected
-                        ? '#E1D2A7'
-                        : isFocused
+        <div onClick={() => setMenuIsOpen(true)}>
+            <Select
+                instanceId="phone-country-select"
+                options={options}
+                onChange={(option) => onChange(option?.value || defaultOption?.value)}
+                value={selectedOption || defaultOption}
+                classNamePrefix="react-select"
+                isSearchable={false}
+                isClearable={false}
+                menuPlacement="auto"
+                menuPosition="absolute"
+                onMenuOpen={() => setMenuIsOpen(true)}
+                menuShouldScrollIntoView={false}
+                components={{
+                    DropdownIndicator: CustomDropdownIndicator as any,
+                    SingleValue: ({ data }) => <div>{data.flagOnly}</div>,
+                    IndicatorSeparator: () => null,
+                }}
+                styles={{
+                    option: (styles, { isFocused, isSelected }) => ({
+                        ...styles,
+                        backgroundColor: isSelected
                             ? '#E1D2A7'
-                            : undefined,
-                    ":hover": {
-                        backgroundColor: "#E1D2A7",
-                    },
-                    color: 'black',
-                }),
-                control: (base) => ({
-                    ...base,
-                    height: '32px',
-                    width: '48px',
-                    minHeight: '32px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    padding: 0,
-                    border: 'none',
-                    backgroundColor: 'transparent',
-                    boxShadow: 'none',
-                }),
-                valueContainer: (base) => ({
-                    ...base,
-                    padding: 0,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                }),
-                dropdownIndicator: (base) => ({
-                    ...base,
-                    padding: 0,
-                }),
-                menu: (base) => ({
-                    ...base,
-                    zIndex: 9999,
-                    width: "300%",
-                }),
-            }}
-        />
+                            : isFocused
+                                ? '#E1D2A7'
+                                : undefined,
+                        ":hover": {
+                            backgroundColor: "#E1D2A7",
+                        },
+                        color: 'black',
+                    }),
+                    control: (base) => ({
+                        ...base,
+                        height: '32px',
+                        width: '48px',
+                        minHeight: '32px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        padding: 0,
+                        border: 'none',
+                        backgroundColor: 'transparent',
+                        boxShadow: 'none',
+                    }),
+                    valueContainer: (base) => ({
+                        ...base,
+                        padding: 0,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }),
+                    dropdownIndicator: (base) => ({
+                        ...base,
+                        padding: 0,
+                    }),
+                    menu: (base) => ({
+                        ...base,
+                        zIndex: 9999,
+                        width: "300%",
+                    }),
+                }}
+            /></div>
     );
 }
