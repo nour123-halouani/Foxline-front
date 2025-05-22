@@ -29,9 +29,6 @@ export default function ForgotPasswordForm() {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-3 lg:px-4">
-            <div className="w-8 h-8 rounded-full shadow-custom flex items-center justify-center">
-                <Password className="text-gold" />
-            </div>
             <div className="flex flex-col gap-1 pb-3">
                 <h1 className="text-xl font-bold">{t('forgotPassword')}</h1>
                 <p className="text-xs text-typography-lighter">{t('forgotPasswordDescription')}</p>
