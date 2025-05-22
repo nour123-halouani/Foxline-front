@@ -68,3 +68,18 @@ export const otpSchema = (
             .regex(/^\d{6}$/, { message: t('otpDigitsOnly') }),
     });
 
+export const resetPasswordSchema = (
+    t: (key: string, params?: Record<string, any>) => string
+) =>
+    z.object({
+        password: z.string()
+            .nonempty({ message: t('requiredField') })
+            .min(8, {
+                message: t('passwordMinLength', { length: 8 }),
+            }),
+        confirmPassword: z.string()
+            .nonempty({ message: t('requiredField') }),
+    }).refine((data) => data.password === data.confirmPassword, {
+        message: t('passwordsDontMatch'),
+        path: ['confirmPassword'],
+    });

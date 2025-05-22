@@ -78,5 +78,8 @@
     "verify": "تحقق",
     "codeNotReceived": "لم تستلم الرمز؟",
     "codeNotReceivedDescription": "إعادة إرسال الرمز؟",
-    "resendIn": "إعادة إرسال الرمز في غضون "
+    "resendIn": "إعادة إرسال الرمز في غضون ",
+    "resetPassword": "تعيين كلمة مرور جديدة",
+    "resetPasswordDescription": "أدخل كلمة المرور الجديدة لإكمال عملية التعيين",
+    "rememberPassword":"تذكرت كلمة المرور القديمة؟"
 }
