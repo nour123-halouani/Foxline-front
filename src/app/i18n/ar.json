@@ -68,5 +68,15 @@
     "confirmPassword": "تأكيد كلمة المرور",
     "passwordsDontMatch": "كلمات المرور غير متطابقة",
     "isCompany": "أنا شركة",
-    "InvalidPhoneNumber": "رقم هاتف غير صالح"
+    "InvalidPhoneNumber": "رقم هاتف غير صالح",
+    "forgotPasswordDescription": "أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور",
+    "submit": "إرسال",
+    "OTPVerification": "التحقق من OTP",
+    "OTPVerificationDescription": "تحقق من بريدك الإلكتروني للاطلاع على رمز التحقق",
+    "otpLengthError": "يجب أن يتكون رمز التحقق من 6 أرقام",
+    "otpDigitsOnly": "يُسمح بالأرقام فقط",
+    "verify": "تحقق",
+    "codeNotReceived": "لم تستلم الرمز؟",
+    "codeNotReceivedDescription": "إعادة إرسال الرمز؟",
+    "resendIn": "إعادة إرسال الرمز في غضون "
 }

@@ -47,3 +47,24 @@ export const signUpSchema = (
         message: t('passwordsDontMatch'),
         path: ['confirmPassword'],
     });
+
+export const forgotPasswordSchema = (
+    t: (key: string, params?: Record<string, any>) => string
+) =>
+    z.object({
+        email: z.string()
+            .nonempty({ message: t('requiredField') })
+            .email({ message: t('invalidEmail') })
+    });
+
+export const otpSchema = (
+    t: (key: string, params?: Record<string, any>) => string
+) =>
+    z.object({
+        otp: z
+            .string()
+            .min(6, { message: t('otpLengthError') })
+            .max(6, { message: t('otpLengthError') })
+            .regex(/^\d{6}$/, { message: t('otpDigitsOnly') }),
+    });
+

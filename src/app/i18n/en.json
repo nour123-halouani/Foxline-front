@@ -68,5 +68,15 @@
     "confirmPassword": "Confirm password",
     "passwordsDontMatch": "Passwords don’t match",
     "isCompany": "I am a comapny",
-    "InvalidPhoneNumber": "Invalid phone number"
+    "InvalidPhoneNumber": "Invalid phone number",
+    "forgotPasswordDescription": "Enter your email to reset your password",
+    "submit": "Submit",
+    "OTPVerification": "OTP Verification",
+    "OTPVerificationDescription": "Check your email to see the verification code",
+    "otpLengthError": "OTP must be 6 digits",
+    "otpDigitsOnly": "Only numeric digits allowed",
+    "verify": "Verify",
+    "codeNotReceived": "Didn’t receive the code?",
+    "codeNotReceivedDescription": "Resend Code?",
+    "resendIn":"Resend code in"
 }
