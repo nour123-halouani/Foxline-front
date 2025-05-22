@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import { Montserrat, Almarai } from 'next/font/google';
 import { useLanguage } from '@/app/context/LanguageContext';
 import cn from '@/app/utils/classNames';
+import Providers from '@/_redux/provider';
 
 const montserrat = Montserrat({
     variable: '--font-montserrat',
@@ -25,7 +26,10 @@ export default function MainLayout({ children }: { children: ReactNode }) {
 
     return (
         <body suppressHydrationWarning={true} className={cn(montserrat.variable, almarai.variable, fontClass)} dir={isArabic ? 'rtl' : 'ltr'}>
-            {children}
+            <Providers>
+
+                {children}
+            </Providers>
         </body>
     );
 }
