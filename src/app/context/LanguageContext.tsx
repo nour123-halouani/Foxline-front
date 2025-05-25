@@ -1,17 +1,18 @@
 'use client';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
+type Messages = { [key: string]: any };
 type LanguageContextType = {
   lang: string;
   setLang: (lang: string) => void;
-  messages: { [key: string]: string };
+  messages: Messages;
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
   const [lang, setLangState] = useState('en');
-  const [messages, setMessages] = useState<{ [key: string]: string }>({});
+  const [messages, setMessages] = useState<Messages>({});
 
   const setLang = (newLang: string) => {
     localStorage.setItem('lang', newLang);
@@ -25,7 +26,14 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
   }, []);
 
   useEffect(() => {
-    import(`@/app/i18n/${lang}.json`).then(setMessages);
+    const loadMessages = async () => {
+      const frontend = await import(`@/app/i18n/frontend/${lang}.json`);
+      const backend = await import(`@/app/i18n/backend/${lang}.json`);
+
+      setMessages({ ...frontend, ...backend });
+    };
+
+    loadMessages();
   }, [lang]);
 
   return (

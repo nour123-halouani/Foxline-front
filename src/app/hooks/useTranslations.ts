@@ -3,8 +3,11 @@ import { useLanguage } from '../context/LanguageContext';
 export const useTranslations = () => {
     const { messages } = useLanguage();
 
+    const getNested = (obj: any, path: string): any =>
+        path.split('.').reduce((acc, part) => acc && acc[part], obj);
+
     const t = (key: string, params?: Record<string, any>): string => {
-        let translation = messages[key] || key;
+        let translation = getNested(messages, key) || key;
 
         if (params) {
             Object.entries(params).forEach(([paramKey, value]) => {
@@ -17,3 +20,4 @@ export const useTranslations = () => {
 
     return t;
 };
+

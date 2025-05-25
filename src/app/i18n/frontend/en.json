@@ -78,8 +78,9 @@
     "verify": "Verify",
     "codeNotReceived": "Didn’t receive the code?",
     "codeNotReceivedDescription": "Resend Code?",
-    "resendIn":"Resend code in",
-    "resetPassword":"Set New Password",
-    "resetPasswordDescription":"Enter your new password to complete the reset process",
-    "rememberPassword":"Remember old password?"
+    "resendIn": "Resend code in",
+    "resetPassword": "Set New Password",
+    "resetPasswordDescription": "Enter your new password to complete the reset process",
+    "rememberPassword": "Remember old password?",
+    "accountCreated": "Account Created"
 }

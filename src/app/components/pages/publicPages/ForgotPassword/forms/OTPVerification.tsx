@@ -7,13 +7,18 @@ import { Button } from 'rizzui';
 import { useTranslations } from '@/app/hooks/useTranslations';
 import { otpSchema } from '@/app/utils/formsValidations';
 import cn from '@/app/utils/classNames';
-import { Password } from '@/app/components/icons/Password';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@/_redux/store';
+import { useRouter } from 'next/navigation';
+import { optVerification, sendResetCode } from '@/_redux/actions/auth';
 
-export default function OTPVerificationForm(email: any) {
+export default function OTPVerificationForm({ email }: { email: string }) {
     const t = useTranslations();
     const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
     const OTPSchema = otpSchema(t);
     type OTPSchemaFormValues = z.infer<typeof OTPSchema>;
+    const dispatch = useDispatch<AppDispatch>();
+    const router = useRouter();
 
     const {
         setValue,
@@ -52,7 +57,14 @@ export default function OTPVerificationForm(email: any) {
     };
 
     const onSubmit = (data: OTPSchemaFormValues) => {
-        console.log('OTP submitted:', data);
+        dispatch(optVerification({
+            formData: {
+                email: email,
+                code: data.otp,
+            },
+            t,
+            navigate: router.push
+        }))
     };
 
     useEffect(() => {
@@ -80,9 +92,13 @@ export default function OTPVerificationForm(email: any) {
         }, 1000);
 
         setIntervalId(newIntervalId);
-
-        // Optionally: Call resend OTP API here
-        // resendOTP(email);
+        dispatch(sendResetCode({
+            formData: {
+                email: email,
+            },
+            t,
+            navigate: router.push
+        }))
     };
 
     const formatTime = (seconds: number) => {

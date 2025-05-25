@@ -1,0 +1,14 @@
+{
+    "accountCreated": "Account created successfully",
+    "emailExists": "Email already exists",
+    "serverError": "An error occurred, try again",
+    "userNotFound": "User Not Found",
+    "invalidCredentials": "Invalid Credentials",
+    "welcomeBackFromBack": "Login successful. Welcome back!",
+    "resetCodeSended": "Reset code sent to your email",
+    "invalidRequest": "Invalid request.",
+    "codeValidated": "The code has been successfully validated.",
+    "codeExpired": "The code has expired.",
+    "invalidCode": "The code you entered is invalid.",
+    "passwordResetSuccessfully":"Password has been reset successfully"
+}

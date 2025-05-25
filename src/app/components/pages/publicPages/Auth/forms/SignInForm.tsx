@@ -13,6 +13,10 @@ import { z } from 'zod';
 import Link from 'next/link';
 import { GoogleIcon } from '@/app/components/icons/Google';
 import { ColoredFacebook } from '@/app/components/icons/FacebookColored';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@/_redux/store';
+import { signIn } from '@/_redux/actions/auth';
+import { useRouter } from 'next/navigation';
 
 export default function SignInForm() {
     const t = useTranslations();
@@ -21,6 +25,8 @@ export default function SignInForm() {
 
     const SignInSchema = signInSchema(t);
     type SignInFormValues = z.infer<typeof SignInSchema>;
+    const dispatch = useDispatch<AppDispatch>();
+    const router = useRouter();
 
     const {
         register,
@@ -31,7 +37,22 @@ export default function SignInForm() {
     });
 
     const onSubmit = (data: SignInFormValues) => {
-        console.log('Form submitted:', data);
+        dispatch(signIn({
+            formData: {
+                email: data.email,
+                password: data.password,
+            },
+            t,
+            navigate: router.push
+        }))
+    };
+
+    const handleGoogleLogin = () => {
+        window.open(`${process.env.NEXT_PUBLIC_API_URL}/auth/google`, '_blank', 'noopener,noreferrer');
+    };
+
+    const handleFacebookLogin = () => {
+        window.open(`${process.env.NEXT_PUBLIC_API_URL}/auth/facebook`, '_blank', 'noopener,noreferrer');
     };
 
     return (
@@ -95,6 +116,7 @@ export default function SignInForm() {
                 size="sm"
                 variant="outline"
                 className="relative border-gold text-gold w-full py-2"
+                onClick={handleGoogleLogin}
             >
                 <span
                     className="absolute left-3 top-1/2 -translate-y-1/2 ltr:left-3 rtl:left-auto rtl:right-3"
@@ -111,6 +133,7 @@ export default function SignInForm() {
                 size="sm"
                 variant="outline"
                 className="relative border-gold text-gold w-full py-2"
+                onClick={handleFacebookLogin}
             >
                 <span
                     className="absolute left-3 top-1/2 -translate-y-1/2 ltr:left-3 rtl:left-auto rtl:right-3"

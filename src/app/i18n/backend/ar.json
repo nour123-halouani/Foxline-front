@@ -1,0 +1,14 @@
+{
+    "accountCreated": "تم إنشاء الحساب بنجاح",
+    "emailExists": "البريد الإلكتروني مستخدم بالفعل",
+    "serverError": "حدث خطأ، حاول مرة أخرى",
+    "userNotFound": "لم يتم العثور على المستخدم",
+    "invalidCredentials": "بيانات غير صالحة",
+    "welcomeBackFromBack": "تم الدخول بنجاح. أهلاً بك من جديد!",
+    "resetCodeSended": "تم إرسال رمز إعادة التعيين إلى بريدك الإلكتروني",
+    "invalidRequest": "طلب غير صالح",
+    "codeValidated": "تم التحقق من الرمز بنجاح",
+    "codeExpired": "انتهت صلاحية الرمز",
+    "invalidCode": "الرمز الذي أدخلته غير صالح",
+    "passwordResetSuccessfully": "تم إعادة تعيين كلمة المرور بنجاح"
+}

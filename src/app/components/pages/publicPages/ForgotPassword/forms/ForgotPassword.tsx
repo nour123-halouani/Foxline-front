@@ -6,13 +6,18 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { forgotPasswordSchema } from '@/app/utils/formsValidations';
 import { z } from 'zod';
-import { Password } from '@/app/components/icons/Password';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@/_redux/store';
+import { useRouter } from 'next/navigation';
+import { sendResetCode } from '@/_redux/actions/auth';
 
 export default function ForgotPasswordForm() {
     const t = useTranslations();
 
     const ForgotPasswordSchema = forgotPasswordSchema(t);
     type ForgotPasswordFormValues = z.infer<typeof ForgotPasswordSchema>;
+    const dispatch = useDispatch<AppDispatch>();
+    const router = useRouter();
 
     const {
         register,
@@ -23,8 +28,13 @@ export default function ForgotPasswordForm() {
     });
 
     const onSubmit = (data: ForgotPasswordFormValues) => {
-        console.log('submitted');
-        console.log('Form submitted:', data);
+        dispatch(sendResetCode({
+            formData: {
+                email: data.email,
+            },
+            t,
+            navigate: router.push
+        }))
     };
 
     return (

@@ -15,6 +15,10 @@ import { GoogleIcon } from '@/app/components/icons/Google';
 import { ColoredFacebook } from '@/app/components/icons/FacebookColored';
 import { User } from '@/app/components/icons/User';
 import PhoneNumberInput from '@/app/components/ui/PhoneInput';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@/_redux/store';
+import { signUp } from '@/_redux/actions/auth';
+import { useRouter } from 'next/navigation';
 
 export default function SignUpForm() {
     const t = useTranslations();
@@ -26,6 +30,8 @@ export default function SignUpForm() {
 
     const SignUpSchema = signUpSchema(t);
     type SignUpFormValues = z.infer<typeof SignUpSchema>;
+    const dispatch = useDispatch<AppDispatch>();
+    const router = useRouter();
 
     const {
         register,
@@ -37,11 +43,30 @@ export default function SignUpForm() {
     });
 
     const onSubmit = (data: SignUpFormValues) => {
-        console.log('submitted');
-        console.log('Form submitted:', data);
+        dispatch(signUp({
+            formData: {
+                email: data.email,
+                password: data.password,
+                name: data.fullName,
+                phone: data.phone,
+                role: "customer",
+                isCompany: data.isCompany
+            },
+            t,
+            navigate: router.push
+        }))
     };
+
+    const handleGoogleLogin = () => {
+        window.open(`${process.env.NEXT_PUBLIC_API_URL}/auth/google`, '_blank', 'noopener,noreferrer');
+    };
+
+    const handleFacebookLogin = () => {
+        window.open(`${process.env.NEXT_PUBLIC_API_URL}/auth/facebook`, '_blank', 'noopener,noreferrer');
+    };
+
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-3 lg:px-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-3 lg:px-4" autoComplete="off">
             <div className="flex flex-col gap-1 pb-3">
                 <h1 className="text-xl font-bold">{t('getStartedNow')}</h1>
                 <p className="text-xs text-typography-lighter">{t('getStartedNowDescription')}</p>
@@ -141,6 +166,7 @@ export default function SignUpForm() {
                 size="sm"
                 variant="outline"
                 className="relative border-gold text-gold w-full py-2"
+                onClick={handleGoogleLogin}
             >
                 <span
                     className="absolute left-3 top-1/2 -translate-y-1/2 ltr:left-3 rtl:left-auto rtl:right-3"
@@ -157,6 +183,7 @@ export default function SignUpForm() {
                 size="sm"
                 variant="outline"
                 className="relative border-gold text-gold w-full py-2"
+                onClick={handleFacebookLogin}
             >
                 <span
                     className="absolute left-3 top-1/2 -translate-y-1/2 ltr:left-3 rtl:left-auto rtl:right-3"

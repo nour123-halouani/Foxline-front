@@ -11,8 +11,12 @@ import { useState } from 'react';
 import { EyeOff } from '@/app/components/icons/EyeOff';
 import { Eye } from '@/app/components/icons/Eye';
 import Link from 'next/link';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@/_redux/store';
+import { useRouter } from 'next/navigation';
+import { resetPassword } from '@/_redux/actions/auth';
 
-export default function ResetPasswordForm(email: any) {
+export default function ResetPasswordForm({ email }: { email: string }) {
     const t = useTranslations();
     const [showPassword, setShowPassword] = useState(false);
     const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
@@ -21,6 +25,8 @@ export default function ResetPasswordForm(email: any) {
 
     const ResetPasswordSchema = resetPasswordSchema(t);
     type ResetPasswordFormValues = z.infer<typeof ResetPasswordSchema>;
+    const dispatch = useDispatch<AppDispatch>();
+    const router = useRouter();
 
     const {
         register,
@@ -31,8 +37,14 @@ export default function ResetPasswordForm(email: any) {
     });
 
     const onSubmit = (data: ResetPasswordFormValues) => {
-        console.log('submitted');
-        console.log('Form submitted:', data);
+        dispatch(resetPassword({
+            formData: {
+                email: email,
+                newPassword: data.password,
+            },
+            t,
+            navigate: router.push
+        }))
     };
 
     return (
