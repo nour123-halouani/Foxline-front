@@ -63,9 +63,9 @@ export default function AboutUs() {
             <p className="text-sm text-typography-dark">
               {t("visionDescription")}
             </p>
-            <Link href="/contact-us">
+            <Link href="/sign-in">
               <Button className="bg-gold text-white px-4 py-2 rounded w-32 mt-2" size="sm">
-                {t("contactUs")}
+                {t("signIn")}
               </Button>
             </Link>
           </div>
@@ -93,9 +93,9 @@ export default function AboutUs() {
             <p className="text-sm text-typography-dark mb-4">
               {t("provideDescription")}
             </p>
-            <Link href="/contact-us">
+            <Link href="/faq">
               <Button className="bg-gold text-white px-4 py-2 rounded w-32 mt-2" size="sm">
-                {t("contactUs")}
+                {t("FAQ")}
               </Button>
             </Link>
           </div>
