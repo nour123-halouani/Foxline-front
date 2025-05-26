@@ -63,9 +63,11 @@ export default function AboutUs() {
             <p className="text-sm text-typography-dark">
               {t("visionDescription")}
             </p>
-            <Button className="bg-gold text-white px-4 py-2 rounded w-32 mt-2" size="sm">
-              {t("contactUs")}
-            </Button>
+            <Link href="/contact-us">
+              <Button className="bg-gold text-white px-4 py-2 rounded w-32 mt-2" size="sm">
+                {t("contactUs")}
+              </Button>
+            </Link>
           </div>
           <div className="flex flex-col justify-center items-center sm:w-1/2">
             <Image
@@ -91,9 +93,11 @@ export default function AboutUs() {
             <p className="text-sm text-typography-dark mb-4">
               {t("provideDescription")}
             </p>
-            <Button className="bg-gold text-white px-4 py-2 rounded w-32 mt-2" size="sm">
-              {t("contactUs")}
-            </Button>
+            <Link href="/contact-us">
+              <Button className="bg-gold text-white px-4 py-2 rounded w-32 mt-2" size="sm">
+                {t("contactUs")}
+              </Button>
+            </Link>
           </div>
         </div>
 
