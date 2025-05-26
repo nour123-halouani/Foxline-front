@@ -33,7 +33,7 @@ export default function OperationMode() {
                     </div>
                     <Image
                         src={operation1}
-                        alt="Plane"
+                        alt="operation1"
                         className="w-48 h-48 sm:w-56 sm:h-56"
                     />
                 </div>

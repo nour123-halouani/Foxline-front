@@ -82,5 +82,15 @@
     "resetPassword": "Set New Password",
     "resetPasswordDescription": "Enter your new password to complete the reset process",
     "rememberPassword": "Remember old password?",
-    "accountCreated": "Account Created"
+    "accountCreated": "Account Created",
+    "employee": "Employee",
+    "country": "Country",
+    "yearsOfExperience": "Year Of Experience",
+    "aboutUsDescription": "FoxLine Company specializes in providing the best services for shipping goods and parcels.",
+    "visionTitle": "What is our vision?",
+    "visionDescription": "We always aspire to be the best company in this field, and our valued customers are part of our success. We work as a single team with our customers to develop our services and provide them with the best, striving to achieve everything that satisfies them and suits their desires.",
+    "provideTitle": "What do we provide for you?",
+    "provideDescription": "We provide commercial brokerage services and facilitate the transportation of your goods from all European countries, especially Germany.",
+    "differenceTitle": "What makes us different from others?",
+    "differenceDescription": "We are distinguished by our credibility and speed in dealing. We work hard to deliver your goods on time, safely and securely."
 }

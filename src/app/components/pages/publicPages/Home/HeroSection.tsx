@@ -9,7 +9,7 @@ export default function HeroSection() {
     const t = useTranslations();
 
     return (
-        <section className="container flex flex-col-reverse md:flex-row items-center justify-center pt-16">
+        <section className="container flex flex-col-reverse md:flex-row items-center justify-center">
             <motion.div
                 initial={{ x: -110, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
