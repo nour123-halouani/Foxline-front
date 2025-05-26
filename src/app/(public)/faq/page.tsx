@@ -71,6 +71,7 @@ export default function FAQ() {
                       ${isOpen ? 'bg-gold' : 'bg-bg-lighter'}`}
                     />
                     <AccordionOpen
+                      lang={lang}
                       className={`absolute inset-0 m-auto transition-all duration-300 ease-in-out
                       ${isOpen ? 'opacity-0 scale-75' : 'opacity-100 scale-100'}`}
                     />
