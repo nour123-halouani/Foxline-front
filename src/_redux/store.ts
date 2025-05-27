@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./reducers/authSlice"
+import publicReducer from "./reducers/publicSlice"
 
 export function makeStore() {
   return configureStore({
     reducer: {
       auth: authReducer,
+      public: publicReducer
     },
   });
 }

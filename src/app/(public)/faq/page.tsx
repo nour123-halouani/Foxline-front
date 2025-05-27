@@ -1,21 +1,23 @@
 'use client';
 import { useLanguage } from "@/app/context/LanguageContext";
 import { useTranslations } from "@/app/hooks/useTranslations";
-import { useState } from "react";
-import { Dropdown } from "@/app/components/icons/Dropdown";
+import { useEffect, useState } from "react";
 import { AccordionOpen } from "@/app/components/icons/AccordionOpen";
 import { AccordionClose } from "@/app/components/icons/AccordionClose";
+import { getFAQs } from "@/_redux/actions/public";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch } from "@/_redux/store";
 
 export default function FAQ() {
-  const t = useTranslations();
-  const { lang } = useLanguage();
-
-  type AccordionItem = {
-    title: string;
-    content: string;
-  };
-
   const [openItems, setOpenItems] = useState<number[]>([]);
+  const { faq } = useSelector((state: any) => state.public);
+  const dispatch = useDispatch<AppDispatch>();
+  const { lang } = useLanguage();
+  const t = useTranslations();
+
+  useEffect(() => {
+    dispatch(getFAQs());
+  }, []);
 
   const toggle = (index: number) => {
     setOpenItems(prev =>
@@ -24,21 +26,6 @@ export default function FAQ() {
         : [...prev, index]
     );
   };
-  const data: AccordionItem[] = [
-    {
-      title: 'Option A',
-      content: 'Contenu pour Option A...',
-    },
-    {
-      title: 'Option B',
-      content: 'Contenu pour Option B...',
-    },
-    {
-      title: 'Option C',
-      content: 'Contenu pour Option C...',
-    },
-  ];
-
 
   return (
     <main className="pt-4">
@@ -51,8 +38,8 @@ export default function FAQ() {
         </p>
       </div>
       <div className="bg-bg-dark py-16 mt-10">
-        <div className="space-y-4 container">
-          {data.map((item, index) => {
+        <div className="container space-y-4 ">
+          {faq.map((item: any, index: number) => {
             const isOpen = openItems.includes(index);
             return (
               <div
@@ -62,10 +49,12 @@ export default function FAQ() {
               >
                 <button
                   onClick={() => toggle(index)}
-                  className="flex w-full items-center justify-between p-4 text-lg font-semibold focus:outline-none"
+                  className={`flex w-full flex-row items-center justify-between p-4 text-lg font-semibold focus:outline-none`}
                 >
-                  {item.title}
-                  <div className="relative w-8 h-8">
+                  <span className={`flex-1 ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
+                    {lang === 'ar' ? item.questionAr : item.questionEn}
+                  </span>
+                  <div dir="ltr" className="relative w-8 h-8 shrink-0">
                     <div
                       className={`absolute inset-0 rounded-full shadow-custom transition-all duration-300 ease-in-out
                       ${isOpen ? 'bg-gold' : 'bg-bg-lighter'}`}
@@ -82,8 +71,8 @@ export default function FAQ() {
                   </div>
                 </button>
                 {isOpen && (
-                  <div className="p-4 pt-0 text-sm text-typography-dark">
-                    {item.content}
+                  <div className="p-4 pt-0 text-md text-typography-dark">
+                    {lang === 'ar' ? item.responseAr : item.responseEn}
                   </div>
                 )}
               </div>
