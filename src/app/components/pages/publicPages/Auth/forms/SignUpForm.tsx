@@ -95,6 +95,7 @@ export default function SignUpForm() {
                 <PhoneNumberInput
                     control={control}
                     name="phone"
+                    className="lg:w-1/2 w-full"
                     label={t('phone')}
                     error={errors.phone?.message}
                 />

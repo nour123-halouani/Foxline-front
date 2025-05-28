@@ -8,23 +8,25 @@ import en from 'react-phone-number-input/locale/en';
 import { useLanguage } from '@/app/context/LanguageContext';
 import { useTranslations } from '@/app/hooks/useTranslations';
 import CustomCountrySelect from './CustomCountrySelect';
+import cn from '@/app/utils/classNames';
 
 type PhoneNumberInputProps = {
     control: any;
     name: string;
     error?: string;
-    label: string;
+    label?: string;
+    className?: string;
 };
 
 const ALLOWED_COUNTRIES: any = ['LY', 'DE', 'FR', 'BE', 'IT'];
 
-export default function PhoneNumberInput({ control, name, error, label }: PhoneNumberInputProps) {
+export default function PhoneNumberInput({ control, name, error, label, className }: PhoneNumberInputProps) {
     const [focused, setFocused] = useState(false);
     const t = useTranslations();
     const { lang } = useLanguage();
 
     return (
-        <div className="lg:w-1/2 w-full">
+        <div className={className}>
             <label className="text-xs block mb-[4px] font-medium">{label}</label>
             <div
                 className={`rounded-[6px] transition-all duration-200 px-2 !h-[32.37px]

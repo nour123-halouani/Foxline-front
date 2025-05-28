@@ -83,3 +83,36 @@ export const resetPasswordSchema = (
         message: t('passwordsDontMatch'),
         path: ['confirmPassword'],
     });
+
+export const contactUsSchema = (
+    t: (key: string, params?: Record<string, any>) => string
+) =>
+    z.object({
+        email: z.string()
+            .nonempty({ message: t('requiredField') })
+            .email({ message: t('invalidEmail') })
+        ,
+        fullName: z.string()
+            .nonempty({ message: t('requiredField') })
+            .min(10, {
+                message: t('fullNameMinLength', { length: 10 }),
+            })
+        ,
+        phone: z.string().nonempty({ message: t('requiredField') })
+            .refine((val) => isValidPhoneNumber(val), {
+                message: t('InvalidPhoneNumber'),
+            }),
+        subject: z.string()
+            .nonempty({ message: t('requiredField') })
+            .min(10, {
+                message: t('subjectMinLength', { length: 10 }),
+            }),
+        message: z.string()
+            .nonempty({ message: t('requiredField') })
+            .min(10, {
+                message: t('messageMinLength', { length: 10 }),
+            })
+            .max(250, {
+                message: t('messageMaxLength', { length: 250 }),
+            })
+    });
