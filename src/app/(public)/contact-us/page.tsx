@@ -59,9 +59,6 @@ export default function ContactUs() {
                 </span>
               </div>
               <div>
-                <div>
-                  <Image src={Description} alt="" />
-                </div>
               </div>
             </div>
           </div>

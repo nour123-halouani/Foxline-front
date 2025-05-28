@@ -55,7 +55,7 @@ export default function AboutUs() {
       </div>
 
       <div className="flex flex-col items-center justify-center gap-24 sm:py-20 w-full">
-        <div className="flex md:flex-row flex-col-reverse sm:gap-16 w-full justify-center items-center">
+        <div className="flex md:flex-row flex-col-reverse gap-16 w-full justify-center items-center">
           <div className={cn("flex flex-col gap-2 sm:w-1/2 text-center", lang === "ar" ? "sm:text-right" : "sm:text-left")}>
             <h2 className="text-xl font-semibold">
               {t("visionTitle")}

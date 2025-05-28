@@ -100,5 +100,6 @@
     "messageMinLength": "يجب أن تحتوي الرسالة على {length} حرف على الأقل.",
     "messageMaxLength": "يجب أن يكون طول الرسالة {length} حرفًا كحد أقصى.",
     "message": "الرسالة",
-    "contactInfoTitle":"معلومات الاتصال"
+    "contactInfoTitle": "معلومات الاتصال",
+    "messageSendWithSuccess": "تم إرسال الرسالة بنجاح! سنتصل بك قريبًا"
 }

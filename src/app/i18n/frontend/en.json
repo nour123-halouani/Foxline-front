@@ -101,5 +101,6 @@
     "messageMinLength": "The message must be at least {length} characters long.",
     "messageMaxLength": "The message must maximum {length} characters long.",
     "message": "Message",
-    "contactInfoTitle":"Contact Information"
+    "contactInfoTitle": "Contact Information",
+    "messageSendWithSuccess": "Message sent with success! we will call you soon"
 }

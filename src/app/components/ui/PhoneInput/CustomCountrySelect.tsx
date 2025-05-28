@@ -39,7 +39,8 @@ export default function CustomCountrySelect({ value, onChange, labels, allowedCo
             <img src={getFlagUrl(country)} alt={country}
                 className={cn("w-6 h-4 object-contain",
                     lang === "ar" && menuIsOpen && "absolute top-[4px] z-[9999] right-[89px]"
-                )} />
+                )}
+            />
         ),
     }));
 
@@ -115,6 +116,7 @@ export default function CustomCountrySelect({ value, onChange, labels, allowedCo
                         width: "300%",
                     }),
                 }}
-            /></div>
+            />
+        </div>
     );
 }

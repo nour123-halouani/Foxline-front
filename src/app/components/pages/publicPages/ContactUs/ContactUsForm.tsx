@@ -13,6 +13,7 @@ import PhoneNumberInput from '@/app/components/ui/PhoneInput';
 import { Textarea } from "rizzui";
 import Image from 'next/image';
 import { useLanguage } from '@/app/context/LanguageContext';
+import { createContactUs } from '@/_redux/actions/public';
 
 export default function ContactUsForm() {
     const t = useTranslations();
@@ -32,14 +33,17 @@ export default function ContactUsForm() {
     });
 
     const onSubmit = (data: ContactUsFormValues) => {
-        // dispatch(contactUs({
-        //     forlgata: {
-        //         email: data.email,
-        //         password: data.password,
-        //     },
-        //     t,
-        //     navigate: router.push
-        // }))
+        dispatch(createContactUs({
+            formData: {
+                fullName: data.fullName,
+                email: data.email,
+                phone: data.phone,
+                subject: data.subject,
+                message: data.message
+            },
+            t,
+            navigate: router.push
+        }))
     };
 
     return (
@@ -89,6 +93,7 @@ export default function ContactUsForm() {
                 label={t('message')}
                 placeholder={t('message')}
                 error={errors.message?.message}
+                style={{ maxHeight: '100px', minHeight: "100px" }}
             />
             <div className="flex flex-col w-full gap-2 items-end">
                 <Button
