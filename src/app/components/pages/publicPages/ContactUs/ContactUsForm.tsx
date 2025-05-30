@@ -47,7 +47,7 @@ export default function ContactUsForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="w-full sm:space-y-5 space-y-3 mt-4 sm:mt-0">
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full sm:space-y-5 space-y-3 mt-4 lg:mt-0">
             <div className='flex sm:flex-row flex-col gap-3'>
                 <Input
                     {...register('fullName')}

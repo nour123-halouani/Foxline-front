@@ -5,6 +5,7 @@ const initialState = {
   user: null,
   loading: false,
   error: null,
+  isAuthenticated: false
 };
 
 const authSlice = createSlice({
@@ -12,14 +13,16 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      localStorage.removeItem('accessToken');
-      localStorage.removeItem('refreshToken');
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+      localStorage.removeItem("user");
       state.user = null;
+      state.isAuthenticated = false;
     },
     setUserFromToken: (state, action: PayloadAction<any>) => {
       state.user = action.payload;
+      state.isAuthenticated = true;
     },
-
   },
   extraReducers: (builder) => {
     builder
@@ -31,8 +34,10 @@ const authSlice = createSlice({
         const { accessToken, refreshToken, ...userData } = action.payload;
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("refreshToken", refreshToken);
-        state.user = userData;
+        localStorage.setItem("user", JSON.stringify(userData.user));
+        state.user = userData.user;
         state.loading = false;
+        state.isAuthenticated = true;
       })
       .addCase(signUp.rejected, (state, action) => {
         state.loading = false;
@@ -47,9 +52,11 @@ const authSlice = createSlice({
         if (typeof window !== "undefined") {
           localStorage.setItem("accessToken", accessToken);
           localStorage.setItem("refreshToken", refreshToken);
+          localStorage.setItem("user", JSON.stringify(userData.user));
         }
-        state.user = userData;
+        state.user = userData.user;
         state.loading = false;
+        state.isAuthenticated = true;
       })
       .addCase(sendResetCode.pending, (state, action) => {
         state.loading = false;
