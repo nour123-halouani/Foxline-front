@@ -1,7 +1,21 @@
+"use client"
+import { useSelector } from "react-redux";
 import Header from "./Header";
 import Sidebar from "./SiderBar";
+import { RootState } from "@/_redux/store";
+import { useRouter } from "next/navigation";
+import { useLayoutEffect } from "react";
 
 export default function CustomerLayout({ children }: { children: React.ReactNode }) {
+  const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
+  const user = useSelector((state: RootState) => state.auth.user as any);
+  const router = useRouter()
+  useLayoutEffect(() => {
+    if (!isAuthenticated || user?.role !== "customer") {
+      router.replace('/sign-in');
+    }
+  }, [isAuthenticated, user?.role]);
+
   return (
     <main className="block min-h-screen">
       <Header />

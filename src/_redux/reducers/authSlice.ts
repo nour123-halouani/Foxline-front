@@ -18,10 +18,12 @@ const authSlice = createSlice({
       localStorage.removeItem("user");
       state.user = null;
       state.isAuthenticated = false;
+      console.log("state.isAuthenticated11", state.isAuthenticated)
     },
     setUserFromToken: (state, action: PayloadAction<any>) => {
       state.user = action.payload;
       state.isAuthenticated = true;
+      console.log("state.isAuthenticated22", state.isAuthenticated)
     },
   },
   extraReducers: (builder) => {

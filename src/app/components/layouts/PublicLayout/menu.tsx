@@ -11,6 +11,8 @@ import { Close } from "../../icons/Close";
 import { Menu } from "../../icons/Menu";
 import { useLanguage } from "@/app/context/LanguageContext";
 import IconArrowDropDownFill from "../../icons/ArrowDropUpDown";
+import { useSelector } from "react-redux";
+import { RootState } from "@/_redux/store";
 
 export default function MainMenu() {
     const t = useTranslations();
@@ -19,7 +21,8 @@ export default function MainMenu() {
     const [showHeader, setShowHeader] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
     const mobileMenuRef = useRef<HTMLDivElement | null>(null);
-
+    const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
+    console.log(isAuthenticated, "ss")
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
@@ -60,16 +63,22 @@ export default function MainMenu() {
                     <Link href="/faq" className="hover:text-gold">{t("FAQ")}</Link>
                     <Link href="/contact-us" className="hover:text-gold">{t("contactUs")}</Link>
                     <LanguageToggle />
-                    <Link href="/sign-up">
-                        <Button size="md" variant="outline" className="border-gold text-gold w-full">
-                            {t("signUp")}
-                        </Button>
-                    </Link>
-                    <Link href="/sign-in">
-                        <Button size="md" className="bg-gold text-black w-full">
-                            {t("signIn")}
-                        </Button>
-                    </Link>
+                    {!isAuthenticated ?
+                        <>
+                            <Link onClick={() => setMobileMenuOpen(false)} href="/sign-up">
+                                <Button size="md" variant="outline" className="border-gold text-gold w-full">
+                                    {t("signUp")}
+                                </Button>
+                            </Link>
+                            <Link onClick={() => setMobileMenuOpen(false)} href="/sign-in">
+                                <Button size="md" className="bg-gold text-typography w-full">
+                                    {t("signIn")}
+                                </Button>
+                            </Link>
+                        </>
+                        :
+                        <></>
+                    }
                 </nav>
                 <button className="lg:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
                     {mobileMenuOpen ? <Close className="text-gold" /> : <Menu className="text-gold" />}
@@ -110,16 +119,22 @@ export default function MainMenu() {
                         )}
                     </div>
 
-                    <Link onClick={() => setMobileMenuOpen(false)} href="/sign-up">
-                        <Button size="md" variant="outline" className="border-gold text-gold w-full">
-                            {t("signUp")}
-                        </Button>
-                    </Link>
-                    <Link onClick={() => setMobileMenuOpen(false)} href="/sign-in">
-                        <Button size="md" className="bg-gold text-typography w-full">
-                            {t("signIn")}
-                        </Button>
-                    </Link>
+                    {!isAuthenticated ?
+                        <>
+                            <Link onClick={() => setMobileMenuOpen(false)} href="/sign-up">
+                                <Button size="md" variant="outline" className="border-gold text-gold w-full">
+                                    {t("signUp")}
+                                </Button>
+                            </Link>
+                            <Link onClick={() => setMobileMenuOpen(false)} href="/sign-in">
+                                <Button size="md" className="bg-gold text-typography w-full">
+                                    {t("signIn")}
+                                </Button>
+                            </Link>
+                        </>
+                        :
+                        <></>
+                    }
                 </div>
             )}
         </header >
