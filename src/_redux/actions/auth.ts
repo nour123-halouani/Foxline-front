@@ -119,3 +119,29 @@ export const resetPassword = createAsyncThunk(
   }
 );
 
+export const logout = createAsyncThunk(
+  'auth/logout',
+  async (
+    { t }: { t: (key: string) => string },
+    { rejectWithValue }
+  ) => {
+    const refreshToken = localStorage.getItem('refreshToken');
+    try {
+      const response = await axios.post(
+        `${baseURL}/auth/logout`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${refreshToken}`,
+          },
+        }
+      );
+      toast.success(t(response.data?.message));
+      return response.data;
+    } catch (error: any) {
+      const errorMessage = t(error?.response?.data?.message || 'serverError');
+      toast.error(errorMessage);
+      return rejectWithValue(error.response?.data);
+    }
+  }
+);

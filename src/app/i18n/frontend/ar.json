@@ -101,5 +101,7 @@
     "messageMaxLength": "يجب أن يكون طول الرسالة {length} حرفًا كحد أقصى.",
     "message": "الرسالة",
     "contactInfoTitle": "معلومات الاتصال",
-    "messageSendWithSuccess": "تم إرسال الرسالة بنجاح! سنتصل بك قريبًا"
+    "messageSendWithSuccess": "تم إرسال الرسالة بنجاح! سنتصل بك قريبًا",
+    "mySpace": "حسابي",
+    "logout": "تسجيل الخروج"
 }

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { optVerification, resetPassword, sendResetCode, signIn, signUp } from "../actions/auth";
+import { logout, optVerification, resetPassword, sendResetCode, signIn, signUp } from "../actions/auth";
 
 const initialState = {
   user: null,
@@ -12,18 +12,9 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    logout: (state) => {
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("refreshToken");
-      localStorage.removeItem("user");
-      state.user = null;
-      state.isAuthenticated = false;
-      console.log("state.isAuthenticated11", state.isAuthenticated)
-    },
     setUserFromToken: (state, action: PayloadAction<any>) => {
       state.user = action.payload;
       state.isAuthenticated = true;
-      console.log("state.isAuthenticated22", state.isAuthenticated)
     },
   },
   extraReducers: (builder) => {
@@ -93,8 +84,27 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = action.payload as any;
       })
+      .addCase(logout.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.user = null;
+        if (typeof window !== "undefined") {
+          localStorage.removeItem("accessToken");
+          localStorage.removeItem("refreshToken");
+          localStorage.removeItem("user");
+          state.user = null;
+          state.isAuthenticated = false;
+        }
+        state.loading = false;
+      })
+      .addCase(logout.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as any;
+      })
   },
 });
 
-export const { logout, setUserFromToken } = authSlice.actions;
+export const { setUserFromToken } = authSlice.actions;
 export default authSlice.reducer;
