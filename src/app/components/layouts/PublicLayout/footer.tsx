@@ -1,5 +1,5 @@
 import { useTranslations } from "@/app/hooks/useTranslations";
-import logo from "../../../../../public/logos/main-logo.png";
+import logo from "../../../../../public/logos/logo-foxline.png";
 import Image from "next/image";
 import Link from "next/link";
 import Facebook from "../../icons/Facebook";

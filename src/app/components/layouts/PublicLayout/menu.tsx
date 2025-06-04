@@ -1,5 +1,5 @@
 "use client";
-import logo from "../../../../../public/logos/main-logo.png";
+import logo from "../../../../../public/logos/logo-foxline.png";
 import { useTranslations } from "@/app/hooks/useTranslations";
 import { useState, useEffect, useRef } from "react";
 import { Avatar, Button } from "rizzui";

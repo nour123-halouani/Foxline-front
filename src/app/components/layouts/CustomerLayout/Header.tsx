@@ -11,7 +11,7 @@ export default function Header() {
         <StickyHeader>
             <div className="xl:flex hidden w-full justify-between items-center">
                 <Link href={"/"} aria-label="logo">
-                    <Image src={logo} alt="Logo" width={20} height={20} />
+                    <Image src={logo} alt="Logo" width={60} height={40} />
                 </Link>
                 {/* <SearchWidget className="ml-[-30%]" /> */}
                 {/* <HeaderMenuRight /> */} hd
