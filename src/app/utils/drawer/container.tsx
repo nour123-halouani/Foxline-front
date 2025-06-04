@@ -17,7 +17,7 @@ export default function GlobalDrawer() {
       isOpen={isOpen}
       onClose={closeDrawer}
       placement={placement}
-      customSize={customSize}
+      // customSize={customSize}
       className="z-[9999]"
     >
       {view}
