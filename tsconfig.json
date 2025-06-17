@@ -10,7 +10,7 @@
       "./types",
       "./node_modules/@types"
     ],
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
