@@ -75,7 +75,7 @@
     "recharts": "^2.11.0",
     "rizzui": "^0.8.7",
     "sharp": "^0.33.4",
-    "simplebar-react": "^3.2.4",
+    "simplebar-react": "^3.3.1",
     "swiper": "^11.1.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-rtl": "^0.9.0",

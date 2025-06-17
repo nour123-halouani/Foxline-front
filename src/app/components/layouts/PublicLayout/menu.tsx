@@ -16,8 +16,8 @@ import { AppDispatch, RootState } from "@/_redux/store";
 import { Dropdown } from 'rizzui';
 import { User } from "../../icons/User";
 import { Logout } from "../../icons/Logout";
-import { useRouter } from "next/navigation";
 import { logout } from "@/_redux/actions/auth";
+import { useRouter } from "next/navigation";
 
 export default function MainMenu() {
     const t = useTranslations();
@@ -82,9 +82,10 @@ export default function MainMenu() {
     return (
         <header className={cn("bg-typography text-white w-full z-50 fixed top-0 transition-all duration-300 ease-in-out transform text-base",
             showHeader ? "translate-y-0" : "-translate-y-full")}>
-            <div className="w-full max-w-screen-xl mx-auto px-4 lg:px-8 flex items-center justify-between py-[11px]">
+            <div className="w-full max-w-screen-xl mx-auto px-4 lg:px-8 flex items-center justify-between py-[5px]">
                 <Link href="/">
-                    <Image src={logo} alt="Logo" width={130} height={220} />
+                    <Image src={logo} alt="Logo" width={150} className="md:flex hidden" />
+                    <Image src={logo} alt="Logo" width={140} className="md:hidden flex" />
                 </Link>
                 <nav className="hidden lg:flex items-center gap-8">
                     <Link href="/" className="hover:text-gold">{t("home")}</Link>
@@ -111,7 +112,7 @@ export default function MainMenu() {
                                 <span className='flex flex-row items-center'>
                                     <div className="flex items-center justify-center gap-4">
                                         <Avatar
-                                            name={user?.name}
+                                            name={user?.name ?? ""}
                                             size="sm"
                                             color="primary"
                                             className="text-typography"
@@ -139,7 +140,7 @@ export default function MainMenu() {
                     {isAuthenticated &&
                         <div className="flex items-center gap-4" onClick={goToProfile}>
                             <Avatar
-                                name={user?.name}
+                                name={user?.name ?? ""}
                                 size="sm"
                                 color="primary"
                                 className="text-typography"

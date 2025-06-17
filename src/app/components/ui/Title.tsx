@@ -10,7 +10,7 @@ interface TitleProps {
 }
 
 export default function Title({ title, className }: TitleProps) {
-  const [first, ...rest] = title.split(' ');
+  const [first, ...rest] = title?.split(' ');
   const normalText = rest.join(' ');
 
   const ref = useRef(null);

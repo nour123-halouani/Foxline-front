@@ -104,5 +104,10 @@
     "contactInfoTitle": "Contact Information",
     "messageSendWithSuccess": "Message sent with success! we will call you soon",
     "mySpace": "My Space",
-    "logout": "Logout"
+    "logout": "Log out",
+    "accountSettings": "Account Settings",
+    "profile": "Profile",
+    "notifications": "Notifications",
+    "dashboard": "Dashboard",
+    "shipments": "Shipments"
 }

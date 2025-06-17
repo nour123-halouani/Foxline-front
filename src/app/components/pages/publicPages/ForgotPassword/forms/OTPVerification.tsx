@@ -40,7 +40,7 @@ export default function OTPVerificationForm({ email }: { email: string }) {
 
         clearErrors('otp');
 
-        const otpArray = otp.padEnd(6, '').split('');
+        const otpArray = otp.padEnd(6, '')?.split('');
         otpArray[index] = value;
         const updatedOtp = otpArray.join('');
         setValue('otp', updatedOtp);

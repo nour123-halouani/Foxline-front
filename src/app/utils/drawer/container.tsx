@@ -5,11 +5,11 @@ import { Drawer } from "rizzui";
 import { useDrawer } from "@/app/hooks/use-drawer";
 
 export default function GlobalDrawer() {
-  const { isOpen, view, placement, customSize, closeDrawer } = useDrawer();
+  const { isOpen, view, placement, closeDrawer } = useDrawer();
   const pathname = usePathname();
+
   useEffect(() => {
     closeDrawer();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   return (
@@ -17,8 +17,8 @@ export default function GlobalDrawer() {
       isOpen={isOpen}
       onClose={closeDrawer}
       placement={placement}
-      // customSize={customSize}
       className="z-[9999]"
+      containerClassName="max-w-[16rem]"
     >
       {view}
     </Drawer>

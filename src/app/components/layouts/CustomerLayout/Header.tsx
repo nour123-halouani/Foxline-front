@@ -1,23 +1,29 @@
 "use client";
 import Link from "next/link";
-import StickyHeader from "./sticky-header";
 import Sidebar from "./SiderBar";
 import HamburgerButton from "../../icons/Hamburger";
 import logo from "../../../../../public/logos/logo-foxline.png";
 import Image from "next/image";
+import StickyHeader from "./StickyHeader";
+import CustomerHeaderActions from "./CustomerHeaderActions";
 
 export default function Header() {
     return (
         <StickyHeader>
             <div className="xl:flex hidden w-full justify-between items-center">
                 <Link href={"/"} aria-label="logo">
-                    <Image src={logo} alt="Logo" width={60} height={40} />
+                    <Image src={logo} alt="Logo" width={150} className="xl:flex hidden" />
                 </Link>
-                {/* <SearchWidget className="ml-[-30%]" /> */}
-                {/* <HeaderMenuRight /> */} hd
+                <CustomerHeaderActions />
             </div>
             <div className="xl:hidden flex w-full justify-between items-center">
-                <HamburgerButton view={<Sidebar className="static !w-full" />} />
+                <Link href={"/"} aria-label="logo">
+                    <Image src={logo} alt="Logo" width={140} className="xl:hidden flex" />
+                </Link>
+                <div className="flex flex-row gap-2">
+                    <CustomerHeaderActions />
+                    <HamburgerButton className="text-gold" view={<Sidebar className="static !w-full" />} />
+                </div>
             </div>
         </StickyHeader>
     );

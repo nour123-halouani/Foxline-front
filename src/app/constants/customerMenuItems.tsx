@@ -1,43 +1,20 @@
-export const customerMenuItems = [
-    {
-        name: "Dashboard",
-        href: "/",
-        icon: "1",
-    },
-    {
-        name: "Transaction",
-        href: "/",
-        icon: "2",
-    },
-    {
-        name: "Customers",
-        href: "/",
-        icon: "3",
-    },
-    {
-        name: "Delivery company",
-        href: "/",
-        icon: "4",
-    },
-    {
-        name: "Logistics chain",
-        href: "/",
-        icon: "5",
-    },
-    {
-        name: "Custom Rules",
-        href: "/",
-        icon: "6",
-    },
+import { Basket } from "../components/icons/Basket";
+import { Dashboard } from "../components/icons/Dashboard";
+import { useTranslations } from "../hooks/useTranslations";
 
+export const useCustomerMenuItems = () => {
+  const t = useTranslations();
+
+  return [
     {
-        name: "Lists",
-        href: "/",
-        icon: "7",
+      name: t("dashboard"),
+      href: "/customer/profile",
+      icon: <Dashboard />,
     },
     {
-        name: "Discussions",
-        href: "/",
-        icon: "8",
+      name: t("shipments"),
+      href: "/customer/customer-dashboard",
+      icon: <Basket />,
     },
-];
+  ];
+};

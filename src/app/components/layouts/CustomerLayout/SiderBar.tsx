@@ -4,16 +4,17 @@ import { Fragment } from "react";
 import { usePathname } from "next/navigation";
 import { Text } from "rizzui";
 import cn from "@/app/utils/classNames";
-import { customerMenuItems } from "../../../constants/customerMenuItems";
+import { useCustomerMenuItems } from "@/app/constants/customerMenuItems";
 
 export default function Sidebar({ className }: { className?: string }) {
     const pathname = usePathname();
+    const menuItems = useCustomerMenuItems();
 
     return (
-        <div className={cn("fixed z-50 h-full border-e-[1px] xl:w-56 bg-bg", className)}>
-            <div className="px-2 py-4 flex flex-col justify-between h-[90%]">
+        <div className={cn("fixed z-50 h-full border-e-[1px] bg-bg", className)}>
+            <div className="px-2 py-6 flex flex-col justify-between">
                 <div>
-                    {customerMenuItems.map((item: any, index: number) => {
+                    {menuItems?.map((item: any, index: number) => {
                         const isActive = pathname.startsWith(item?.href as string);
                         return (
                             <Fragment key={item.name + "-" + index}>
@@ -22,7 +23,7 @@ export default function Sidebar({ className }: { className?: string }) {
                                         href={item?.href}
                                         className={cn(
                                             "flex items-center rounded-lg px-3 py-2 gap-3",
-                                            isActive && "bg-myBlue-lighter"
+                                            isActive && "bg-gold"
                                         )}
                                     >
                                         {item?.icon && (
@@ -30,8 +31,8 @@ export default function Sidebar({ className }: { className?: string }) {
                                                 className={cn(
                                                     "[&>svg]:h-[20px] [&>svg]:w-[20px]",
                                                     isActive
-                                                        ? "text-typography"
-                                                        : "text-typography-lighter"
+                                                        ? "text-white"
+                                                        : "text-typography"
                                                 )}
                                             >
                                                 {item?.icon}
@@ -40,8 +41,8 @@ export default function Sidebar({ className }: { className?: string }) {
                                         <Text
                                             as="p"
                                             className={cn(
-                                                "text-sm capitalize tracking-[0.2px] font-medium",
-                                                isActive ? "text-typography" : "text-typography-lighter"
+                                                "text-sm capitalize font-medium",
+                                                isActive ? "text-white" : "text-typography"
                                             )}
                                         >
                                             {item.name}
@@ -51,11 +52,6 @@ export default function Sidebar({ className }: { className?: string }) {
                             </Fragment>
                         );
                     })}
-                    <div className="mt-4 flex justify-center">
-                        <Link href="/manual-lookup">
-                            Manual Lookup
-                        </Link>
-                    </div>
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@ export default function Footer() {
             <div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:gap-16 gap-8">
                 <div className="flex flex-col gap-4">
                     <Link className="hover:text-gold" href="/">
-                        <Image src={logo} alt="Logo" width={130} height={220} />
+                        <Image src={logo} alt="Logo" width={140} />
                     </Link>
                     <p className="text-sm">{t("footerDescription")}</p>
                 </div>

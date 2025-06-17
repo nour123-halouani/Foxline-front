@@ -103,5 +103,10 @@
     "contactInfoTitle": "معلومات الاتصال",
     "messageSendWithSuccess": "تم إرسال الرسالة بنجاح! سنتصل بك قريبًا",
     "mySpace": "حسابي",
-    "logout": "تسجيل الخروج"
+    "logout": "تسجيل الخروج",
+    "accountSettings": "إعدادات الحساب",
+    "profile": "ملف الشخصي",
+    "notifications": "الإشعارات",
+    "dashboard": "لوحة القيادة",
+    "shipments": "الشحنات"
 }

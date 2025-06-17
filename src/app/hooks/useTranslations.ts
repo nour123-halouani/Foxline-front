@@ -4,7 +4,7 @@ export const useTranslations = () => {
     const { messages } = useLanguage();
 
     const getNested = (obj: any, path: string): any =>
-        path.split('.').reduce((acc, part) => acc && acc[part], obj);
+        path?.split('.').reduce((acc, part) => acc && acc[part], obj);
 
     const t = (key: string, params?: Record<string, any>): string => {
         let translation = getNested(messages, key) || key;
